@@ -13,7 +13,8 @@ print('eu gosto de jogar fortnit nas minhas horas vagas.')
 print('\n')
 
 #Utilizando o print com variaveis
+#OBS: podemos utilizar as , ou sinal de + para concatenar as frases
 print('Meu nome e ', personagem_nome, ' !!! ')
-print('Eu tenho ', personagem_idade , 'anos de idade.')
+print('Eu tenho ' + personagem_idade + 'anos de idade.')
 print('Meu esporte favorito e o ',personagem_esporte)
 print('eu gosto de jogar ',persongaem_jogo , 'nas minhas horas vagas.')
