@@ -7,7 +7,8 @@ password = getpass.getpass()
 
 tn = telnetlib.Telnet(HOST)
 
-tn.read_until(b"login: ")
+tn.read_until(b"Username: ")
+#tn.read_until(b"login: ")
 tn.write(user.encode('ascii') + b"\n")
 if password:
     tn.read_until(b"Password: ")
