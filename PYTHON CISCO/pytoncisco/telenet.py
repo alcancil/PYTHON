@@ -1,3 +1,8 @@
+#Exemplo de como funciona a bibliotec Telnet (Telnetlib)
+#instalar a biblioteca ==>> pipe install telnetlib
+#exemplo tirado do site da linguagem python : https://docs.python.org/3/library/telnetlib.html
+#Na linha #tn.read_until(b"login: "), trocar de login para Username se não funciona
+
 import getpass
 import telnetlib
 
