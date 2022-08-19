@@ -1,0 +1,208 @@
+
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************
+r01#terminal monitor
+r01#terminal length 0
+r01#show run
+Building configuration...
+
+Current configuration : 3917 bytes
+!
+! Last configuration change at 14:23:28 UTC Fri Aug 19 2022 by cisco
+!
+version 15.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname r01
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+ethernet lmi ce
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+!
+!
+!
+!
+!
+!
+ip domain name cisc.com
+ip name-server 8.8.8.8
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+username cisco privilege 15 secret 5 $1$KrI1$w.ZyhGz3TesV0fbdrJEdi.
+!
+redundancy
+!
+no cdp log mismatch duplex
+!
+ip tcp synwait-time 5
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ no ip address
+!
+interface Loopback1
+ no ip address
+!
+interface Loopback2
+ no ip address
+!
+interface Loopback3
+ no ip address
+!
+interface Loopback4
+ no ip address
+!
+interface Loopback5
+ no ip address
+!
+interface Loopback6
+ no ip address
+!
+interface Loopback7
+ no ip address
+!
+interface Loopback8
+ no ip address
+!
+interface Loopback9
+ no ip address
+!
+interface Loopback10
+ no ip address
+!
+interface GigabitEthernet0/0
+ ip address 192.168.0.101 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/1
+ ip address 10.100.102.1 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 100
+ network 10.100.102.0 0.0.0.3 area 0
+!
+ip default-gateway 192.168.0.1
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 192.168.0.1
+ip ssh time-out 60
+ip ssh logging events
+ip ssh version 2
+!
+!
+!
+!
+control-plane
+!
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input all
+line vty 5 15
+ login local
+ transport input all
+!
+no scheduler allocate
+!
+end
+
+r01#exit
+
